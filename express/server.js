@@ -5,9 +5,10 @@ const cors = require('cors')
 const Redis = require('ioredis')
 const bodyParser = require('body-parser')
 const redis = new Redis({
-  host : 'us1-concrete-ghost-30336.lambda.store',
-  port : '30336',
-  password: '5b9d3b538b68402c87c129b7e933023a'
+  // 使う時に作って https://console.lambda.store/pages/overall
+  host : 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+  port : 'xxxxx',
+  password: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 })
 
 var corsOptions = {
