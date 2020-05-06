@@ -1,16 +1,16 @@
 version: '3'
 services:
-  get:
-    container_name: get
+  nextjs:
+    container_name: nextjs 
     build:
-      context: ./dockerfiles
-      dockerfile: get.dockerfile
+      context: .
+      dockerfile: ./dockerfiles/nextjs.dockerfile
     ports:
       - 4000:4000
     volumes:
-      - ./get/:/nextjs-get
+      - ./nextjs/:/nextjs
       # exclude volumes
-      - /nextjs-get/node_modules
+      - /nextjs/node_modules
     tty: true
     stdin_open: true
 
