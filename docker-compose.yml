@@ -1,0 +1,30 @@
+version: '3'
+services:
+  get:
+    container_name: get
+    build:
+      context: ./dockerfiles
+      dockerfile: get.dockerfile
+    ports:
+      - 4000:4000
+    volumes:
+      - ./get/:/nextjs-get
+      # exclude volumes
+      - /nextjs-get/node_modules
+    tty: true
+    stdin_open: true
+
+  express:
+    container_name: express
+    build:
+      context: .
+      # Dockerfileがビルドされる時のカレントディレクトリはdocker build DIRで指定したDIRである。
+      dockerfile: ./dockerfiles/express.dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./express/:/usr/src/app
+      # exclude volumes
+      - /usr/src/app/node_modules
+    tty: true
+    stdin_open: true
